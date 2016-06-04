@@ -7,8 +7,9 @@
 //
 
 #import "ViewController.h"
-
+#import <ReactiveCocoa/ReactiveCocoa.h>
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
 
@@ -16,7 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self.textField.rac_textSignal subscribeNext:^(id x) {
+        NSLog(@"%@",x);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
