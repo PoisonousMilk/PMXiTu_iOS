@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import <AVOSCloud/AVOSCloud.h>
+#import "AYTabBarController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,7 +17,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    AYTabBarController *tabBarController = [[AYTabBarController alloc] init];
+    self.window.rootViewController = tabBarController;
+    [AVOSCloud setApplicationId:kAPPID clientKey:kAPPKey];
     return YES;
 }
 
