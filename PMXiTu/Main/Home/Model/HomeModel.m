@@ -9,6 +9,10 @@
 #import "HomeModel.h"
 
 @implementation HomeModel
-
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{
+             @"updatedAt":@"updatedAt.iso",
+             };
+}
 
 @end

@@ -39,13 +39,13 @@
 }
 
 - (void)fetchEntryData {
-    
     [[NetService sharedInstance] fetchEntry:kEntry orderByDescending:kRankIndex category:@"design" limitNum:5 skipNum:0 successBlcok:^(NSArray *responseArray) {
         for (NSDictionary *dataDic in responseArray) {
             HomeModel *homeModel = [[HomeModel alloc] init];
             [homeModel yy_modelSetWithDictionary:dataDic];
             [self.homeModelArray addObject:homeModel];
         }
+        NSLog(@"%@",self.homeModelArray);
     } errorBlock:^(NSDictionary *errorDic) {
         
     } ];
